@@ -1,7 +1,10 @@
+Пароль.txt
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
+*.json
 
 # C extensions
 *.so
@@ -26,6 +29,10 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+
+# Игнорим базы данных
+.sqlite
+.sqlite3
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
