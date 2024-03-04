@@ -1,17 +1,14 @@
 from django.db import models
 
-from core.models import PublishedModel, TitleModel
+from core.models import PublishedModel, SlugModel, TitleModel
 
 
-class Category(PublishedModel, TitleModel):
-    slug = models.SlugField(
-        max_length=64,
-        unique=True,
-        verbose_name='Слаг',
-    )
+class Category(PublishedModel, TitleModel, SlugModel):
     output_order = models.PositiveSmallIntegerField(
         default=100,
         verbose_name='Порядок отображения',
+        help_text='Порядок отображения. По умолчанию 100.'
+                  'Чем ниже значение, тем выше будет отображаться.',
     )
 
     class Meta:
@@ -19,12 +16,7 @@ class Category(PublishedModel, TitleModel):
         verbose_name_plural = 'Категории'
 
 
-class Topping(PublishedModel, TitleModel):
-    slug = models.SlugField(
-        max_length=64,
-        unique=True,
-        verbose_name='Слаг',
-    )
+class Topping(PublishedModel, TitleModel, SlugModel):
 
     class Meta:
         verbose_name = 'Топпинг'
@@ -63,6 +55,8 @@ class IceCream(PublishedModel, TitleModel):
     is_on_main = models.BooleanField(
         default=False,
         verbose_name='На главную',
+        help_text='Чтобы отображалось на главной '
+                  'странице поставь галочку',
     )
 
     class Meta:
