@@ -1,0 +1,6 @@
+asgiref==3.7.2
+Django==3.2.16
+django-debug-toolbar==4.3.0
+pytz==2024.1
+sqlparse==0.4.4
+typing_extensions==4.10.0
