@@ -31,8 +31,18 @@ class Wrapper(PublishedModel, TitleModel):
 
 
 class IceCream(PublishedModel, TitleModel):
+    output_order = models.PositiveSmallIntegerField(
+        default=100,
+        verbose_name='Порядок отображения',
+        help_text='Порядок отображения. По умолчанию 100.'
+                  'Чем ниже значение, тем выше будет отображаться.',
+    )
     description = models.TextField(
         verbose_name='Описание',
+    )
+    price = models.DecimalField(
+        max_digits=6,      # Количество цифр, допустимых в числе.
+        decimal_places=2,  # Количество цифр, после запятой.
     )
     wrapper = models.OneToOneField(
         Wrapper,
