@@ -40,6 +40,14 @@
               О проекте
             </a> 
           </li>
+          <li class="nav-item">
+            <a
+              class="nav-link {% if view_name == 'contest:create' %} active {% endif %}"
+              href="{% url 'contest:create' %}"
+            >
+              Конкурс
+            </a>
+          </li>
         </ul>
         {% endwith %}
       </div> 
