@@ -1,8 +1,12 @@
 from django.shortcuts import render
 
+from .forms import ContestForm
+
 
 def proposal_create(request):
-    return render(request, 'contest/form.html')
+    form = ContestForm()
+    context = {'form': form}
+    return render(request, 'contest/form.html', context)
 
 
 def accepted(request):
