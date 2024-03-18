@@ -9,16 +9,18 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
-    'homepage.apps.HomepageConfig',
-    'ice_cream.apps.IceCreamConfig',
-    'about.apps.AboutConfig',
-    'contest.apps.ContestConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'homepage.apps.HomepageConfig',
+    'ice_cream.apps.IceCreamConfig',
+    'about.apps.AboutConfig',
+    'contest.apps.ContestConfig',
+    'django_bootstrap5',
     # Регистрируем Toolbar.
     'debug_toolbar',
 ]
