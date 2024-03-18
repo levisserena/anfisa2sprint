@@ -5,10 +5,17 @@
 {% endblock %}
 
 {% block content %}
-  <form action="{% url 'contest:accepted' %}">
+  <form action="{% url 'contest:create' %}">
     <table>
       {{ form }}
     </table>
     <input type="submit" value="Отправить">
   </form>
+  {% with data=request.GET %}
+    {% if form.is_valid %}
+      <h2>Рецепт мороженого "{{ data.title }}" принят на конкурс!</h2>
+    {% elif data %}
+      Что-то пошло не так! Проверте заполнение формы!
+    {% endif %}
+  {% endwith %}
 {% endblock %}
