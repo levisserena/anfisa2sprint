@@ -11,13 +11,14 @@
       Конкурс мороженого
     </div>
     <div class='card-body'>
-      <form action="{% url 'contest:create' %}">
+      <form action="{% url 'contest:create' %}" method="post">
+        {% csrf_token %}
         {% bootstrap_form form %}
         {% bootstrap_button button_type="submit" content="Отправить" %}
       </form>
     </div>
   </div>
-  {% with data=request.GET %}
+  {% with data=request.POST %}
     {% if form.is_valid %}
       <h2>Рецепт мороженого "{{ data.title }}" принят на конкурс!</h2>
     {% elif data %}
