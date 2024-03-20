@@ -18,11 +18,16 @@
       </form>
     </div>
   </div>
-  {% with data=request.POST %}
+  {% with data=form.instance %}
     {% if form.is_valid %}
-      <h2>Рецепт мороженого "{{ data.title }}" принят на конкурс!</h2>
-    {% elif data %}
-      Что-то пошло не так! Проверте заполнение формы!
+      <h2 style="color:#00AA00">Рецепт мороженого "{{ data.title }}" принят на конкурс!</h2>
+      Номер заявки: {{ data.id }}
+      <hr>
+      <div>
+        <a href="{% url 'contest:list' %}">Список всех заявок</a>
+      </div>
+    {% elif request.POST %}
+      <h2 style="color:#FF0000">Что-то пошло не так! Проверте заполнение формы!</h2>
     {% endif %}
   {% endwith %}
 {% endblock %}
