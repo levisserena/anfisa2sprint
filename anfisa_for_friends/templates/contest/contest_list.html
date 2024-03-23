@@ -13,5 +13,7 @@
       {{ ice_cream.description }}, 
       {{ ice_cream.comment }}
     </div>
+    <a href="{% url 'contest:edit' ice_cream.id %}">Редактировать заявку</a>
+    <a href="{% url 'contest:delete' ice_cream.id %}">Удалить заявку</a>
   {% endfor %}
 {% endblock %}
